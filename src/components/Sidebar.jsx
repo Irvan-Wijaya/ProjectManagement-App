@@ -29,4 +29,7 @@ export default Sidebar;
  * rounded-r-xl : give border radius (t|r|b|l-size) also (tr | bl, etc)
  *
  * md:w-72      : add rule that only applies bigger screens to width 72 (18 rem)
+ * mb-8         : give margin with (b | t | r | l)
+ * md: text-base: text with normal size (default 16 px or 1 rem)
+ * hover: ...   : u know la
  */
