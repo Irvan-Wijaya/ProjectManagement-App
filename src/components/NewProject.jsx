@@ -12,7 +12,6 @@ function NewProject({ onAdd, onCancel }) {
     const enteredDescription = description.current.value
     const enteredDueDate = dueDate.current.value
 
-    // input validation
     onAdd({
       title: enteredTitle,
       description: enteredDescription,

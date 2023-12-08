@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-function Sidebar({onStartAddProject}) {
+function Sidebar({ projects, onStartAddProject }) {
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
       <h1 className="mb-8 font-bold uppercase md:text-xl text-stone-180">
@@ -10,7 +10,15 @@ function Sidebar({onStartAddProject}) {
       <div>
         <Button onClick={onStartAddProject}>+ Add Project</Button>
       </div>
-      <ul></ul>
+      <ul className="mt-8">
+        {projects.map((project) => (
+          <li key={project.id}>
+            <button className="w-full text-left px-2 px-1 rounded-sm my-1 text-stone-400 hover:text-stone-200 hover:bg-stone-800">
+              {project.title}
+            </button>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }
@@ -31,4 +39,6 @@ export default Sidebar;
  * mb-8         : give margin with (b | t | r | l)
  * md: text-base: text with normal size (default 16 px or 1 rem)
  * hover: ...   : u know la
+ *
+ * w-full       : to make sure that uses all width available
  */
