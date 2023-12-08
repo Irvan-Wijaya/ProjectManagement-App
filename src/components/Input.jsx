@@ -1,7 +1,8 @@
-import React from "react";
+import { React, forwardRef } from "react";
 
-function Input({ textarea, label, ...props }) {
-const styledInput = "w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600"
+const Input = forwardRef(function Input({ textarea, label, ...props }, ref) {
+  const styledInput =
+    "w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600";
 
   return (
     <p className="flex flex-col gap-1 my-4">
@@ -9,16 +10,13 @@ const styledInput = "w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-
         {label}
       </label>
       {textarea ? (
-        <textarea
-          className={styledInput}
-          {...props}
-        />
+        <textarea ref={ref} className={styledInput} {...props} />
       ) : (
-        <input className={styledInput} {...props} />
+        <input ref={ref} className={styledInput} {...props} />
       )}
     </p>
   );
-}
+});
 
 export default Input;
 
@@ -29,16 +27,20 @@ export default Input;
 /**
  * flex-col         : to position flex items verticall
  * text-sm          : to make text smaller
- * 
+ *
  * styledInput
- * w-full           : to make sure that it takes entire available width 
- * p-1              : give padding all directions of 0.25 rem 
- * border-b-2       : a border to the bottom wih a width of 2 px 
+ * w-full           : to make sure that it takes entire available width
+ * p-1              : give padding all directions of 0.25 rem
+ * border-b-2       : a border to the bottom wih a width of 2 px
  * rounded-sm       : rounder corners | radius
- * border-stone-300 : add color to border 
- * bg-stone-200     : add bg color of input 
- * 
+ * border-stone-300 : add color to border
+ * bg-stone-200     : add bg color of input
+ *
  * for disable the default outline with focus to only bottom border highlighted
- * focus:outline-none: 
+ * focus:outline-none:
  * focus:border-stone-600:
-  */
+ *
+ * =====================================================================================================
+ * Flow Explanation
+ * wrap this component with forwardRef, then store into a variable    -> for add second parameter which ref
+ */

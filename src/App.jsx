@@ -27,10 +27,31 @@ function App() {
     });
   }
 
+  function handleAddProject(projectData) {
+    setProjectState((prev) => {
+      const newProject = {
+        // for simpliciy can use spread operator than declacre all attribute
+        ...projectData,
+        id: Math.random(),
+        // good enough for dummy project when id use Math.random()
+      };
+
+      return {
+        ...prev,
+        projects: [...prev.projects, newProject],
+      };
+    });
+  }
+
+  console.log(projectState);
+
+  // logic visibility
   let content;
 
   if (projectState.selectedProjectId === null) {
-    content = <NewProject onCancel = {handleCancelAddProject}/>;
+    content = (
+      <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
+    );
   } else if (projectState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
@@ -50,4 +71,10 @@ export default App;
 /**
  * h-screen   : make sure that will takes up all the screen height (entire available height)
  * my-8       : add margin (y means vertical axis 2 rem) | one spacing unit equal 0.25 rem
+ *
+ * =====================================================================================================
+ * function handleAddProject Flow
+ * copy all previous data, and then update the project array. then update the project without
+ * losing any prev project, therefore copying all the old project with spread operation.
+ *
  */

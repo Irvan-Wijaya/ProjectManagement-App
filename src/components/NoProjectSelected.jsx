@@ -22,3 +22,9 @@ function NoProjectSelected(props) {
 }
 
 export default NoProjectSelected;
+
+// =====================================================================================================
+// Personal Tailwind note
+/**
+ * object-contain     : Resize an elements contents to stay contained within its container.
+ */
