@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 function NewProject({ onAdd, onCancel }) {
   const modal = useRef()
-
+  const modalSuccess = useRef()
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -30,6 +30,8 @@ function NewProject({ onAdd, onCancel }) {
       description: enteredDescription,
       dueDate: enteredDueDate,
     });
+
+    modalSuccess.current.open()
   }
 
   return (
@@ -37,6 +39,11 @@ function NewProject({ onAdd, onCancel }) {
     <Modal ref={modal} buttonCaption="Ok">
       <h2 className="text-xl font-bold text-stone-500 my-4">Invalid Input</h2>
       <p className="text-stone-500 mb-4">Oops.. please make sure you provide a valid input for every input field.</p>
+    </Modal>
+
+    <Modal ref={modalSuccess} buttonCaption="Close">
+      <h2 className="text-xl font-bold text-stone-500 my-4">Success</h2>
+      <p className="text-stone-500 mb-4">Project data has been added</p>
     </Modal>
 
       <div className="w-[35rem] mt-16">
