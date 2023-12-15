@@ -1,4 +1,5 @@
 import React from "react";
+import Task from "./Task";
 
 function SelectedProject({ project, onDelete }) {
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
@@ -9,7 +10,7 @@ function SelectedProject({ project, onDelete }) {
 
   return (
     <div className="w-[35rem] mt-16">
-      <header className="p-4 mb-4 border-b-2 border-stone-300 shadow-xl bg-stone-100 rounded-md">
+      <header className="p-4 mb-4 border-b-4 border-stone-300">
         <div className="flex item-center justify-between">
           <h1 className="text-3xl font-bold text-stone-600 mb-2">
             {project.title}
@@ -23,6 +24,7 @@ function SelectedProject({ project, onDelete }) {
           {project.description}
         </p>
       </header>
+      <Task/>
     </div>
   );
 }

@@ -8,7 +8,16 @@ function App() {
   const [projectState, setProjectState] = useState({
     selectedProjectId: undefined, // undefined means that doing nothing (no project yet or no selected)
     projects: [],
+    task: []
   });
+
+  function handleAddTask(){
+    
+  }
+  
+  function handleDeleteTask(){
+    
+  }
 
   function handleStartAddProject() {
     setProjectState((prev) => {
