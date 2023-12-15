@@ -22,6 +22,7 @@ function NewProject({ onAdd, onCancel }) {
     ) {
       modal.current.open();
       return;
+      // return for not be executed onAdd if the validation invalid input.
     }
 
     onAdd({
@@ -33,9 +34,9 @@ function NewProject({ onAdd, onCancel }) {
 
   return (
     <>
-    <Modal ref={modal} buttonCaption="Close">
-      <h2>Invalid Input</h2>
-      <p>Oops.. please make sure you provide a valid input for every input field.</p>
+    <Modal ref={modal} buttonCaption="Ok">
+      <h2 className="text-xl font-bold text-stone-500 my-4">Invalid Input</h2>
+      <p className="text-stone-500 mb-4">Oops.. please make sure you provide a valid input for every input field.</p>
     </Modal>
 
       <div className="w-[35rem] mt-16">
@@ -76,4 +77,9 @@ export default NewProject;
  * justify-end    : to place to end of area (div)
  * gap-4          : to change the gap between rows and columns independently
  * my-4           : margin y axis (vertical)
+ * 
+ * ======================================================================================================
+ * Modal concept
+ * useRef modal used for pointer to modal component, so this component can access the useImperativeHandle,
+ * which is means the open method.
  *  */
