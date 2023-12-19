@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function SelectedProject({ project, onDelete }) {
+function SelectedProject({ project, onDelete, onAddTask, onDeleteTask, tasks }) {
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -24,7 +24,7 @@ function SelectedProject({ project, onDelete }) {
           {project.description}
         </p>
       </header>
-      <Task/>
+      <Task onAddT={onAddTask} onDeleteT={onDeleteTask} tasks={tasks}/>
     </div>
   );
 }

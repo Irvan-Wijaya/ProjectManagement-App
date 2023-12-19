@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 
-function NewTask() {
-  const [enteredTask, setEnteredTask] = useState()
+function NewTask({onAdd}) {
+  const [enteredTask, setEnteredTask] = useState('')
 
   function handleChange(event){
     setEnteredTask(event.target.value)
   }
 
-  function handleSubmit(){
-    
+  function handleClick(){
+    if(enteredTask.trim() === ''){
+      return
+    }
+    onAdd(enteredTask)
     setEnteredTask('')
   }
 
@@ -20,7 +23,7 @@ function NewTask() {
         onChange={handleChange}
         value={enteredTask}
       />
-      <button onClick={handleSubmit} className="text-stone-700 hover:text-stone-950">Add Task</button>
+      <button onClick={handleClick} className="text-stone-700 hover:text-stone-950">Add</button>
     </div>
   );
 }

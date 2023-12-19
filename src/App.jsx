@@ -8,15 +8,32 @@ function App() {
   const [projectState, setProjectState] = useState({
     selectedProjectId: undefined, // undefined means that doing nothing (no project yet or no selected)
     projects: [],
-    task: []
+    tasks: [],
   });
 
-  function handleAddTask(){
-    
+  function handleAddTask(text) {
+    setProjectState((prev) => {
+      const taskId = Math.random();
+      const newTask = {
+        text: text,
+        projectId: prev.selectedProjectId,
+        id: taskId,
+      };
+
+      return {
+        ...prev,
+        tasks: [newTask, ...prev.tasks],
+      };
+    });
   }
-  
-  function handleDeleteTask(){
-    
+
+  function handleDeleteTask(id) {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
   }
 
   function handleStartAddProject() {
@@ -53,17 +70,19 @@ function App() {
     });
   }
 
-  function handleDeleteProject(){
-    setProjectState((prevState)=>{
-      return{
+  function handleDeleteProject() {
+    setProjectState((prevState) => {
+      return {
         ...prevState,
         selectedProjectId: undefined,
-        projects: prevState.projects.filter((project)=> project.id !== prevState.selectedProjectId)
-      }
-    })
+        projects: prevState.projects.filter(
+          (project) => project.id !== prevState.selectedProjectId
+        ),
+      };
+    });
   }
 
-  // used for get projectSelected by id from Sidebar 
+  // used for get projectSelected by id from Sidebar
   function handleSelectProject(id) {
     setProjectState((prev) => {
       return {
@@ -79,7 +98,15 @@ function App() {
   );
 
   // logic visibility
-  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject}/>
+  let content = (
+    <SelectedProject
+      project={selectedProject}
+      onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={projectState.tasks}
+    />
+  );
 
   if (projectState.selectedProjectId === null) {
     content = (
@@ -95,6 +122,7 @@ function App() {
         projects={projectState.projects}
         onStartAddProject={handleStartAddProject}
         onSelectProject={handleSelectProject}
+        selectedProjectID={projectState.selectedProjectId}
       />
       {content}
     </main>
