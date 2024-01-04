@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import NoProjectSelected from "./components/noProjectSelected";
 import NewProject from "./components/NewProject";
 import SelectedProject from "./components/SelectedProject";
+import illustration from "./assets/ProjectStages.gif"
 
 function App() {
   const [projectState, setProjectState] = useState({
@@ -125,6 +126,9 @@ function App() {
         selectedProjectID={projectState.selectedProjectId}
       />
       {content}
+      <div className="w-[35rem] mt-16">
+        <img src={illustration} alt="" />
+      </div>
     </main>
   );
 }
