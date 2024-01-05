@@ -12,6 +12,7 @@ function App() {
     tasks: [],
   });
 
+  // add task
   function handleAddTask(text) {
     setProjectState((prev) => {
       const taskId = Math.random();
@@ -28,6 +29,7 @@ function App() {
     });
   }
 
+  // delete task
   function handleDeleteTask(id) {
     setProjectState((prevState) => {
       return {
@@ -37,6 +39,7 @@ function App() {
     });
   }
 
+  //conditional render to add project page
   function handleStartAddProject() {
     setProjectState((prev) => {
       return {
@@ -46,6 +49,7 @@ function App() {
     });
   }
 
+  // conditional rendering to default page
   function handleCancelAddProject() {
     setProjectState((prev) => {
       return {
@@ -55,6 +59,7 @@ function App() {
     });
   }
 
+  // add new project
   function handleAddProject(projectData) {
     setProjectState((prev) => {
       const newProject = {
@@ -71,6 +76,7 @@ function App() {
     });
   }
 
+  // delete project
   function handleDeleteProject() {
     setProjectState((prevState) => {
       return {
