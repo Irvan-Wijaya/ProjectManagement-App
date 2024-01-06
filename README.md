@@ -21,4 +21,8 @@ Basic project management web application that can add project name, project desc
 
 https://github.com/Irvan-Wijaya/ProjectManagement-App/assets/77274711/d94bbd62-a9c8-44aa-895f-eda7311b8cdb
 
+## Tools
+- Tailwind CSS
+- Vite
+
 
