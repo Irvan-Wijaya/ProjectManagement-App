@@ -47,7 +47,7 @@ export default Modal;
  * useImperativeHandle
  * for expose a function that can be called from outside this component function, then useImperativeHandle.
  * 
- * to this hook, first pass the ref then the second value must provide a function that will be called by react.
+ * for this hook, first pass the ref then the second value must provide a function that will be called by react.
  * where return an object that then expose any properties or function you want to expose to other components.
  * 
  * showModal method is method provide by the built-in dialog element.
