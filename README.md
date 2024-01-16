@@ -26,5 +26,3 @@ https://github.com/Irvan-Wijaya/ProjectManagement-App/assets/77274711/d94bbd62-a
 git clone https://github.com/Irvan-Wijaya/ProjectManagement-App.git
 npm i
 npm run dev
-
-
